@@ -1,0 +1,22 @@
+{
+  "name": "iekadou/twig_pjaxr",
+  "type": "library",
+  "description": "PJAXR backend for Twig",
+  "keywords": ["templating"],
+  "homepage": "http://iekadou.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jonas Braun",
+      "email": "jonas@iekadou.com",
+      "homepage": "http://iekadou.com",
+      "role": "Project Founder"
+    }
+  ],
+  "require": {
+    "php": ">=5.2.7"
+  },
+  "autoload": {
+    "files": ["src/Twig_Pjaxr/TwigPjaxrExtends.php"]
+  }
+}
