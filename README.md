@@ -9,7 +9,7 @@ There are just two steps needed to install twig-pjaxr:
 	```json
 	{
         "require": {
-            "iekadou/twig_pjaxr": "~1.0",
+            "iekadou/twig_pjaxr": ">=0.1.2",
         }
     }
 	```
