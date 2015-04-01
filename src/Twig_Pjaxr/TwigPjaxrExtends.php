@@ -1,5 +1,11 @@
 <?php
 
+namespace Iekadou\TwigPjaxr;
+
+use Iekadou\Pjaxr\Pjaxr as Pjaxr;
+use Twig_Token;
+use Twig_TokenParser;
+
 /*
  *
  * (c) 2015 Jonas Braun

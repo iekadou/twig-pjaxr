@@ -14,7 +14,9 @@
     }
   ],
   "require": {
-    "php": ">=5.3.29"
+    "php": ">=5.3.29",
+    "twig/twig": "~1.0",
+    "iekadou/php_pjaxr": "dev-master"
   },
   "autoload": {
     "files": ["src/Twig_Pjaxr/TwigPjaxrExtends.php"]
