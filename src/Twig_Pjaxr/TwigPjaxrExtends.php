@@ -50,6 +50,7 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends \Twig_TokenParser
                 $arg3 = $stream->expect(\Twig_Token::STRING_TYPE)->getValue();
             }
         }
+        $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
 
         $pjaxr_template = null;
 
@@ -62,13 +63,11 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends \Twig_TokenParser
                 $extension_namespace = $arg2;
             }
         }
-
-        if (isset($pjaxr_template) && Pjaxr::matches($extension_namespace)) {
-            $this->parser->setParent($pjaxr_template);
-        } else {
-            $this->parser->setParent($default_template);
-        }
-        $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
+        $arguments = new \Twig_Node_Expression_Array(array(), $token->getLine());
+        $arguments->addElement($default_template);
+        $arguments->addElement($pjaxr_template);
+        $arguments->addElement($extension_namespace);
+        $this->parser->setParent(new \Twig_Node_Expression_Function('pjaxr_matching', $arguments, $token->getLine()));
     }
 
     /**
