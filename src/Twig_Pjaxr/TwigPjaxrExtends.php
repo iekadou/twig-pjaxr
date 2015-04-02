@@ -47,7 +47,7 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends \Twig_TokenParser
         if (!$stream->test(\Twig_Token::BLOCK_END_TYPE)) {
             $arg2 = $this->parser->getExpressionParser()->parseExpression();
             if (!$stream->test(\Twig_Token::BLOCK_END_TYPE)) {
-                $arg3 = $stream->expect(\Twig_Token::STRING_TYPE)->getValue();
+                $arg3 = $this->parser->getExpressionParser()->parseExpression();
             }
         }
         $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
