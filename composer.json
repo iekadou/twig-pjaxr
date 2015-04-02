@@ -19,7 +19,7 @@
     "iekadou/php_pjaxr": ">=0.1.1"
   },
   "autoload": {
-    "files": ["src/Twig_Pjaxr/TwigPjaxrExtends.php"]
+    "files": ["src/Twig_Pjaxr/TwigPjaxrExtends.php", "src/Twig_Pjaxr/TwigPjaxrExtension.php"]
   },
   "extra": {
     "branch-alias": {

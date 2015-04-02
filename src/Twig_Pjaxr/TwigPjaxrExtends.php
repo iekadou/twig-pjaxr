@@ -3,9 +3,6 @@
 namespace Iekadou\TwigPjaxr;
 
 use Iekadou\Pjaxr\Pjaxr as Pjaxr;
-use Twig_Token;
-use Twig_TokenParser;
-
 /*
  *
  * (c) 2015 Jonas Braun
@@ -25,7 +22,7 @@ use Twig_TokenParser;
  *  {% pjaxr_extends "__base.html" "__pjaxr.html" "Pjaxr.Namespace" %}
  * </pre>
  */
-class Twig_Pjaxr_TokenParser_PjaxrExtends extends Twig_TokenParser
+class Twig_Pjaxr_TokenParser_PjaxrExtends extends \Twig_TokenParser
 {
     /**
      * Parses a token and returns a node.
@@ -34,23 +31,23 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends Twig_TokenParser
      *
      * @return Twig_NodeInterface A Twig_NodeInterface instance
      */
-    public function parse(Twig_Token $token)
+    public function parse(\Twig_Token $token)
     {
         $stream = $this->parser->getStream();
         $extension_namespace = null;
         if (!$this->parser->isMainScope()) {
-            throw new Twig_Error_Syntax('Cannot extend from a block', $token->getLine(), $this->parser->getFilename());
+            throw new \Twig_Error_Syntax('Cannot extend from a block', $token->getLine(), $this->parser->getFilename());
         }
 
         if (null !== $this->parser->getParent()) {
-            throw new Twig_Error_Syntax('Multiple extends tags are forbidden', $token->getLine(), $this->parser->getFilename());
+            throw new \Twig_Error_Syntax('Multiple extends tags are forbidden', $token->getLine(), $this->parser->getFilename());
         }
 
         $default_template = $this->parser->getExpressionParser()->parseExpression();
-        if (!$stream->test(Twig_Token::BLOCK_END_TYPE)) {
+        if (!$stream->test(\Twig_Token::BLOCK_END_TYPE)) {
             $arg2 = $this->parser->getExpressionParser()->parseExpression();
-            if (!$stream->test(Twig_Token::BLOCK_END_TYPE)) {
-                $arg3 = $stream->expect(Twig_Token::STRING_TYPE)->getValue();
+            if (!$stream->test(\Twig_Token::BLOCK_END_TYPE)) {
+                $arg3 = $stream->expect(\Twig_Token::STRING_TYPE)->getValue();
             }
         }
 
@@ -61,7 +58,7 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends Twig_TokenParser
                 $pjaxr_template = $arg2;
                 $extension_namespace = $arg3;
             } else {
-                $pjaxr_template = new Twig_Node_Expression_Constant("__pjaxr.html", $token->getLine());
+                $pjaxr_template = new \Twig_Node_Expression_Constant("__pjaxr.html", $token->getLine());
                 $extension_namespace = $arg2;
             }
         }
@@ -71,7 +68,7 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends Twig_TokenParser
         } else {
             $this->parser->setParent($default_template);
         }
-        $this->parser->getStream()->expect(Twig_Token::BLOCK_END_TYPE);
+        $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
     }
 
     /**
