@@ -33,11 +33,11 @@ class Twig_Pjaxr_Extension extends \Twig_Extension
         );
     }
 
-    public function pjaxr_matching($default_key, $default, $pjaxr_key, $pjaxr, $namespace_key, $namespace){
-        if (isset($pjaxr) && Pjaxr::matches($namespace)) {
-            return $pjaxr;
+    public function pjaxr_matching($default_key, $default_template, $pjaxr_key, $pjaxr_template, $namespace_key, $extension_namespace){
+        if (isset($pjaxr_template) && Pjaxr::matches($extension_namespace)) {
+            return $pjaxr_template;
         } else {
-            return $default;
+            return $default_template;
         }
     }
 

@@ -35,6 +35,7 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends \Twig_TokenParser
     {
         $stream = $this->parser->getStream();
         $extension_namespace = null;
+        $pjaxr_template = null;
         if (!$this->parser->isMainScope()) {
             throw new \Twig_Error_Syntax('Cannot extend from a block', $token->getLine(), $this->parser->getFilename());
         }
@@ -51,8 +52,6 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends \Twig_TokenParser
             }
         }
         $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
-
-        $pjaxr_template = null;
 
         if (isset($arg2)) {
             if (isset($arg3)) {
