@@ -66,7 +66,7 @@ class Twig_Pjaxr_TokenParser_PjaxrExtends extends \Twig_TokenParser
         $arguments->addElement($default_template);
         $arguments->addElement($pjaxr_template);
         $arguments->addElement($extension_namespace);
-        $this->parser->setParent(new \Twig_Node_Expression_Function('pjaxr_matching', $arguments, $token->getLine()));
+        $this->parser->setParent(new \Twig_Node_Expression_Function('_pjaxr_calculate_template', $arguments, $token->getLine()));
     }
 
     /**

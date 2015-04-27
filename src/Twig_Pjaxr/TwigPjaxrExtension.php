@@ -29,11 +29,11 @@ class Twig_Pjaxr_Extension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('pjaxr_matching', array($this, 'pjaxr_matching'))
+            new \Twig_SimpleFunction('_pjaxr_calculate_template', array($this, '_pjaxr_calculate_template'))
         );
     }
 
-    public function pjaxr_matching($default_key, $default_template, $pjaxr_key, $pjaxr_template, $namespace_key, $extension_namespace){
+    public function _pjaxr_calculate_template($default_key, $default_template, $pjaxr_key, $pjaxr_template, $namespace_key, $extension_namespace){
         if (isset($pjaxr_template) && Pjaxr::matches($extension_namespace)) {
             return $pjaxr_template;
         } else {

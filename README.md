@@ -9,15 +9,15 @@ There are just two steps needed to install twig-pjaxr:
 	```json
 	{
         "require": {
-            "iekadou/twig_pjaxr": ">=0.1.2",
+            "iekadou/twig_pjaxr": ">=0.2.0",
         }
     }
 	```
 
-2. Add pjaxr_extends TokenParser to the template:
+2. Add Twig_Pjaxr_Extension to the Twig-Engine:
 
     ```php
-    $template->addTokenParser(new Twig_Pjaxr_TokenParser_PjaxrExtends());
+    $twig->addExtension(new Twig_Pjaxr_Extension());
 	```
 
 ## How do i use twig-pjaxr?
@@ -43,7 +43,7 @@ or
 
 ## What do you need for twig-pjaxr?
 
-1. [PHP](http://php.net) >= 5.3.29
+1. [PHP](http://php.net) >= 5.3.3
 2. [twig](https://github.com/twigphp/Twig)
 3. [php-pjaxr](https://github.com/iekadou/php-pjaxr)
 4. [jquery-pjaxr](https://github.com/minddust/jquery-pjaxr)
